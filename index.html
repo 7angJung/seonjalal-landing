@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>선잘알 | 더 잘 맞는 선물 추천</title>
+  <meta
+    name="description"
+    content="수신자의 취향과 비선호 카테고리를 반영하는 선물 추천 서비스, 선잘알입니다."
+  />
+  <style>
+    :root {
+      color-scheme: light;
+      --navy: #182b49;
+      --blue: #386fe6;
+      --bg: #f6f8fc;
+      --text: #243247;
+      --muted: #5e6c80;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main {
+      width: min(760px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 96px 0;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: var(--blue);
+      background: #eaf0ff;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 20px 0 16px;
+      color: var(--navy);
+      font-size: clamp(40px, 7vw, 64px);
+      letter-spacing: -0.06em;
+    }
+
+    .intro {
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 20px;
+      line-height: 1.7;
+    }
+
+    section {
+      margin-top: 44px;
+      padding: 30px;
+      border: 1px solid #e3e8f0;
+      border-radius: 20px;
+      background: #fff;
+    }
+
+    h2 {
+      margin-top: 0;
+      color: var(--navy);
+      font-size: 22px;
+    }
+
+    ul {
+      margin-bottom: 0;
+      padding-left: 22px;
+      line-height: 2;
+    }
+
+    footer {
+      margin-top: 34px;
+      color: #7b8798;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <span class="badge">카카오테크 부트캠프 팀 프로젝트</span>
+
+    <h1>선잘알</h1>
+
+    <p class="intro">
+      선물을 받는 사람의 취향과 비선호 카테고리를 반영해,
+      더 잘 맞는 선물 선택을 돕는 맞춤형 선물 추천 서비스입니다.
+    </p>
+
+    <section>
+      <h2>현재 개발 중인 기능</h2>
+      <ul>
+        <li>수신자별 비선호 카테고리 반영</li>
+        <li>선물 수신 이력 확인</li>
+        <li>중복 선물 가능성을 낮춘 상품 추천</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>서비스 상태</h2>
+      <p>
+        선잘알은 MVP를 개발 중입니다. 현재 페이지는 서비스와 팀 프로젝트를
+        소개하기 위한 공식 안내 페이지입니다.
+      </p>
+    </section>
+
+    <footer>© 2026 선잘알. All rights reserved.</footer>
+  </main>
+</body>
+</html>
