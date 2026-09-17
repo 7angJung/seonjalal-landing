@@ -3,116 +3,271 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>선잘알 | 더 잘 맞는 선물 추천</title>
   <meta
     name="description"
-    content="수신자의 취향과 비선호 카테고리를 반영하는 선물 추천 서비스, 선잘알입니다."
+    content="수신자의 취향, 비선호 카테고리와 선물 이력을 반영하는 개인화 선물 추천 서비스 선잘알입니다."
   />
+  <meta name="robots" content="index, follow" />
+  <title>선잘알 | 취향을 반영한 선물 추천</title>
+
   <style>
     :root {
       color-scheme: light;
       --navy: #182b49;
       --blue: #386fe6;
+      --blue-dark: #2855ba;
+      --blue-soft: #eaf0ff;
       --bg: #f6f8fc;
+      --surface: #ffffff;
       --text: #243247;
       --muted: #5e6c80;
+      --border: #e3e8f0;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
       color: var(--text);
       background: var(--bg);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7;
+      word-break: keep-all;
+    }
+
+    a {
+      color: inherit;
     }
 
     main {
-      width: min(760px, calc(100% - 40px));
+      width: min(960px, calc(100% - 40px));
       margin: 0 auto;
-      padding: 96px 0;
+      padding: 88px 0 56px;
+    }
+
+    .hero {
+      max-width: 760px;
+      padding-bottom: 24px;
     }
 
     .badge {
       display: inline-block;
-      padding: 8px 12px;
+      padding: 8px 13px;
       border-radius: 999px;
       color: var(--blue);
-      background: #eaf0ff;
+      background: var(--blue-soft);
       font-size: 14px;
       font-weight: 700;
     }
 
     h1 {
-      margin: 20px 0 16px;
+      margin: 20px 0 14px;
       color: var(--navy);
-      font-size: clamp(40px, 7vw, 64px);
+      font-size: clamp(42px, 8vw, 68px);
+      line-height: 1.08;
       letter-spacing: -0.06em;
     }
 
+    .tagline {
+      margin: 0 0 18px;
+      color: var(--navy);
+      font-size: clamp(22px, 4vw, 30px);
+      font-weight: 750;
+      letter-spacing: -0.035em;
+    }
+
     .intro {
-      max-width: 620px;
+      max-width: 700px;
+      margin: 0;
       color: var(--muted);
-      font-size: 20px;
-      line-height: 1.7;
+      font-size: 19px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 28px;
     }
 
     section {
-      margin-top: 44px;
       padding: 30px;
-      border: 1px solid #e3e8f0;
+      border: 1px solid var(--border);
       border-radius: 20px;
-      background: #fff;
+      background: var(--surface);
+    }
+
+    section.full {
+      grid-column: 1 / -1;
     }
 
     h2 {
-      margin-top: 0;
+      margin: 0 0 14px;
       color: var(--navy);
       font-size: 22px;
+      letter-spacing: -0.025em;
+    }
+
+    p {
+      margin: 0;
     }
 
     ul {
-      margin-bottom: 0;
+      margin: 0;
       padding-left: 22px;
-      line-height: 2;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .status-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .status-list li {
+      margin: 0;
+      padding: 17px;
+      border-radius: 14px;
+      background: var(--bg);
+    }
+
+    .status-list strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--blue-dark);
+      font-size: 14px;
+    }
+
+    .contact {
+      display: inline-flex;
+      align-items: center;
+      margin-top: 18px;
+      padding: 11px 16px;
+      border-radius: 12px;
+      color: #fff;
+      background: var(--blue);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .contact:hover,
+    .contact:focus-visible {
+      background: var(--blue-dark);
     }
 
     footer {
       margin-top: 34px;
       color: #7b8798;
       font-size: 14px;
+      text-align: center;
+    }
+
+    @media (max-width: 720px) {
+      main {
+        padding-top: 56px;
+      }
+
+      .grid,
+      .status-list {
+        grid-template-columns: 1fr;
+      }
+
+      section.full {
+        grid-column: auto;
+      }
     }
   </style>
 </head>
+
 <body>
   <main>
-    <span class="badge">카카오테크 부트캠프 팀 프로젝트</span>
-
-    <h1>선잘알</h1>
-
-    <p class="intro">
-      선물을 받는 사람의 취향과 비선호 카테고리를 반영해,
-      더 잘 맞는 선물 선택을 돕는 맞춤형 선물 추천 서비스입니다.
-    </p>
-
-    <section>
-      <h2>현재 개발 중인 기능</h2>
-      <ul>
-        <li>수신자별 비선호 카테고리 반영</li>
-        <li>선물 수신 이력 확인</li>
-        <li>중복 선물 가능성을 낮춘 상품 추천</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>서비스 상태</h2>
-      <p>
-        선잘알은 MVP를 개발 중입니다. 현재 페이지는 서비스와 팀 프로젝트를
-        소개하기 위한 공식 안내 페이지입니다.
+    <header class="hero">
+      <span class="badge">개인화 선물 추천 서비스 · MVP 개발 중</span>
+      <h1>선잘알</h1>
+      <p class="tagline">취향을 몰라도, 더 잘 맞는 선물을 고를 수 있도록</p>
+      <p class="intro">
+        선잘알은 선물 수신자의 취향, 비선호 카테고리와 선물 수신 이력을
+        반영하여 선물 선택의 불확실성과 중복 가능성을 낮추는 개인화 추천 서비스입니다.
       </p>
-    </section>
+    </header>
 
-    <footer>© 2026 선잘알. All rights reserved.</footer>
+    <div class="grid">
+      <section>
+        <h2>해결하려는 문제</h2>
+        <p>
+          기존의 인기 상품 중심 추천만으로는 수신자가 원하지 않는 카테고리나
+          이미 받은 상품을 피하기 어렵습니다. 선잘알은 수신자 중심의 정보를
+          추천 과정에 반영해 더 적합한 선택을 돕습니다.
+        </p>
+      </section>
+
+      <section>
+        <h2>핵심 기능</h2>
+        <ul>
+          <li>수신자별 비선호 카테고리를 반영한 상품 추천</li>
+          <li>받은 선물 이력 조회와 중복 가능성 완화</li>
+          <li>관계·목적·예산을 활용한 상황 맞춤 추천 확장</li>
+        </ul>
+      </section>
+
+      <section class="full">
+        <h2>개발 현황과 계획</h2>
+        <ul class="status-list">
+          <li>
+            <strong>현재</strong>
+            핵심 기능과 사용자 흐름을 구현하는 MVP 개발 단계
+          </li>
+          <li>
+            <strong>다음 단계</strong>
+            초기 사용자를 대상으로 기능과 추천 경험 검증
+          </li>
+          <li>
+            <strong>확장 계획</strong>
+            선물 이력·후기·자연어 입력을 활용한 추천 고도화
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>AWS 활용 계획</h2>
+        <p>
+          MVP 운영을 위해 애플리케이션 실행 환경, 데이터베이스, 상품 이미지 저장소와
+          모니터링 환경을 AWS에 구성하고, 사용자 증가에 따라 확장 가능한 구조를
+          단계적으로 검증할 계획입니다.
+        </p>
+      </section>
+
+      <section>
+        <h2>팀 소개</h2>
+        <p>
+          선잘알은 카카오테크 부트캠프에서 시작된 팀 프로젝트입니다.
+          취향저격단은 MVP 출시와 초기 사용자 검증을 목표로 서비스를 개발하고 있습니다.
+        </p>
+      </section>
+
+      <section class="full">
+        <h2>문의</h2>
+        <p>
+          서비스와 프로젝트에 관한 문의는 아래 이메일로 보내주세요.
+        </p>
+        <a class="contact" href="mailto:kwangja0233@daum.net">
+          kwangja0233@daum.net
+        </a>
+      </section>
+    </div>
+
+    <footer>© 2026 선잘알 · 취향저격단. All rights reserved.</footer>
   </main>
 </body>
 </html>
